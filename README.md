@@ -4,9 +4,9 @@
 
  Recreating and styling the netflix page, responsively. 
  Using 
- - _html
- - _css
- - _Javascript
+ -  _*html*_
+ -  _*css*_
+ -  _*Javascript*_
 
 
 

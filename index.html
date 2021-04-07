@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,15 +8,16 @@
     <link rel="stylesheet" href="style/main.css">
     <link rel="shortcut icon" href="assets/fitflix.ico" type="image/x-icon">
 
-<!--responsive css-->
-<link rel="stylesheet" href="style/responsive.css">
+    <!--responsive css-->
+    <link rel="stylesheet" href="style/responsive.css">
 
-<!--owl css-->
+    <!--owl css-->
     <link rel="stylesheet" href="style/owl/owl.carousel.min.css">
     <link rel="stylesheet" href="style/owl/owl.theme.default.min.css">
 
     <title>Netflix Clone</title>
 </head>
+
 <body>
     <header>
         <div class="container">
@@ -25,7 +27,7 @@
                 <a href="#">Training</a>
                 <a href="#">Favorites</a>
                 <a href="#">Search
-                <i class="fas fa-search"></i>
+                    <i class="fas fa-search"></i>
                 </a>
             </nav>
         </div>
@@ -35,10 +37,11 @@
         <div class="main-film">
             <div class="container">
                 <h3 class="title">BIKE INDOOR</h3>
-                <p class="description">30 minuts of bike indoor class, music, motivation and customized images of roads and mountains.</p>
+                <p class="description">30 minuts of bike indoor class, music, motivation and customized images of roads
+                    and mountains.</p>
                 <p class="burn">BURN: 300 Calories</p>
                 <div class="buttons">
-                    <button role="button" class="button">
+                    <button role="button" class="button" onClick="openVideo()">
                         <i class="fas fa-play"></i>
                         ASSISTIR AGORA</button>
                     <button role="button" class="button">
@@ -78,10 +81,37 @@
         </div>
     </div>
 
-    <script src="https://kit.fontawesome.com/4bae274481.js" crossorigin="anonymous"></script>
-    <script src="js/owl/jquery.min.js"></script>
-    <script src="js/owl/owl.carousel.min.js"></script>
-    <script src="js/setup.js"></script>
+    <div onClick="closeVideo()" id="playerContainer"
+        style="background-color: rgb(20, 20, 20);width: 100%;height: 100%;place-content: center;display: none;position: absolute;z-index: 1000;top: 0%;/* justify-content: center; *//* justify-items: center; */align-items: center;">
+
+        <iframe id="iframe" width="60%" height="60%" src="https://www.youtube.com/embed/4Hl1WAGKjMc"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <script>
+        function openVideo() {
+            document.getElementById("playerContainer").style.display = "flex"
+        }
+
+        function closeVideo() {
+            document.getElementById("playerContainer").style.display = "none"
+            document.querySelectorAll('iframe').forEach(v => {
+                v.src = v.src
+            });
+            document.querySelectorAll('video').forEach(v => {
+                v.pause()
+            });
+        }
+    </script>
+        
+        <script src="https://kit.fontawesome.com/4bae274481.js" crossorigin="anonymous"></script>
+        <script src="js/owl/jquery.min.js"></script>
+        <script src="js/owl/owl.carousel.min.js"></script>
+        <script src="js/setup.js"></script>
 
 </body>
+
 </html>
